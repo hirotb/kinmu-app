@@ -1,0 +1,35 @@
+{
+  "name": "kinmu-app",
+  "version": "1.0.0",
+  "description": "kinmu-app is Time Sheet App",
+  "author": "hirotb",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint",
+    "format": "eslint **/**/*.{vue,js} --fix",
+    "dev-debug": "node --inspect-brk=9229 node_modules/nuxt/bin/nuxt"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "bootstrap-vue": "^2.0.0-beta",
+    "cross-env": "^5.2.0",
+    "firebase": "^5.5.6",
+    "moment": "^2.22.2",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^5.0.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-prettier": "2.6.2",
+    "eslint-plugin-vue": "^4.0.0",
+    "nodemon": "^1.11.0",
+    "prettier": "1.14.3"
+  }
+}

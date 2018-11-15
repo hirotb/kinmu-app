@@ -1,0 +1,70 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+          //Docker
+          "type": "node",
+          "request": "attach",
+          "name": "Docker: Attach to Node",
+          "port": 9229,
+          "address": "localhost",
+          "localRoot": "${workspaceFolder}\\app",
+          "remoteRoot": "/home/node/app",
+          "protocol": "inspector",
+        },
+        {
+          "type": "node",
+          "request": "launch",
+          "name": "nuxt dev",
+          "program": "${file}", 
+          // tasks.json のlabelを指定することでいける。
+          "preLaunchTask": "dev", 
+          "cwd": "${workspaceFolder}", 
+          "outFiles": [
+            "${workspaceFolder}/build/**/*.js"
+          ]
+        },
+        {
+          "type": "chrome",
+          "request": "launch",
+          "name": "Launch Chrome",
+          "url": "http://localhost:3000",
+          "webRoot": "${workspaceFolder}",
+          "runtimeArgs": [ <- ここからの3行を追加する
+            "--remote-debugging-port=9222"
+          ]
+        },
+        {
+          "type": "node",
+          "request": "launch",
+          "name": "Launch via NPM",
+          "runtimeExecutable": "npm",
+          "runtimeArgs": [
+              "run-script",
+              "dev-debug"
+          ],
+          "port": 9229
+         }
+        // {
+        //   "type": "node",
+        //   "request": "launch",
+        //   "name": "nuxt start",
+        //   "program": "${file}", 
+        //   // tasks.json のlabelを指定することでいける。
+        //   "preLaunchTask": "start", 
+        //   "cwd": "${workspaceFolder}", 
+        //   "outFiles": [
+        //     "${workspaceFolder}/build/**/*.js"
+        //   ]
+        // }
+      ],
+      "compounds": [ <- ここの6行を追加
+        {
+          "name": "Full-stack",
+          "configurations": ["Launch via NPM", "Launch Chrome"]
+        }
+    ]
+}
